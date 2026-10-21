@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Gestor Financiero</string>
+    <string name="notification_listener_name">Captura financiera local</string>
+    <string name="capture_explanation">Las capturas reconocidas se guardan en este dispositivo y se envían al servidor después de emparejarlo.</string>
+    <string name="capture_pending">Captura ingresos de Yape y compras de IO y Wallet en los formatos verificados. Wallet requiere una tarjeta configurada. Si falta la fecha del movimiento se usa la hora de la notificación. Un pago avisado por IO y Wallet puede aparecer dos veces.</string>
+    <string name="notification_access_enabled">Acceso a notificaciones habilitado</string>
+    <string name="notification_access_disabled">Acceso a notificaciones pendiente</string>
+    <string name="open_notification_settings">Abrir acceso a notificaciones</string>
+    <string name="settings_unavailable">Abre Ajustes de Android y busca Acceso a notificaciones.</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <queries>
+        <package android:name="pe.io" />
+        <package android:name="com.bcp.innovacxion.yapeapp" />
+        <package android:name="com.google.android.apps.walletnfcrel" />
+    </queries>
+    <application>
+        <provider
+            android:name=".capture.DiagnosticProvider"
+            android:authorities="com.gestorfinanciero.capture.diagnostic"
+            android:exported="true"
+            android:permission="android.permission.DUMP" />
+    </application>
+</manifest>

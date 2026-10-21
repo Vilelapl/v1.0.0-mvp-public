@@ -1,0 +1,53 @@
+# Plantilla para el bloque http{} de nginx. Reemplazar dominio, rutas y certificado.
+# El proveedor/proxy termina TLS con un certificado válido; no generar uno casero.
+server {
+    listen 80;
+    server_name finanzas.example.com;
+    access_log off;
+    return 308 https://finanzas.example.com$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    server_name finanzas.example.com;
+    ssl_certificate /RUTA/AL/CERTIFICADO/fullchain.pem;
+    ssl_certificate_key /RUTA/A/LA/CLAVE/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+
+    root /srv/gestor-financiero/web/dist;
+    index index.html;
+    client_max_body_size 32k;
+    server_tokens off;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Referrer-Policy no-referrer always;
+
+    # Evita guardar query strings financieras en logs de acceso.
+    access_log off;
+
+    location /api/ {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_http_version 1.1;
+        proxy_set_header Host $host;
+        proxy_set_header Origin $http_origin;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        # Express no confía en X-Forwarded-For; el límite se comparte por proxy.
+        proxy_set_header X-Forwarded-For "";
+        proxy_connect_timeout 5s;
+        proxy_read_timeout 30s;
+    }
+
+    location /health/ {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_read_timeout 10s;
+    }
+
+    location /assets/ {
+        try_files $uri =404;
+        expires 1y;
+    }
+
+    location / {
+        try_files $uri $uri/ /index.html;
+        expires -1;
+    }
+}

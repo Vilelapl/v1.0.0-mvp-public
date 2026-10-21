@@ -1,0 +1,6 @@
+<resources>
+    <item name="server_url" type="id" />
+    <item name="device_name" type="id" />
+    <item name="pairing_code" type="id" />
+    <item name="pair_device" type="id" />
+</resources>

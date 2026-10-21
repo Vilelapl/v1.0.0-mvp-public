@@ -1,0 +1,6 @@
+# Fuentes portables; conservar el launcher de Windows con CRLF.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.png binary
+*.PNG binary
+*.jar binary
