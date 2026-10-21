@@ -5,8 +5,8 @@ de **IO, Yape y Google Wallet**, los conserva sin conexión y los sincroniza con
 un backend. El dashboard web permite consultar, filtrar, crear y corregir
 movimientos y asignar categorías.
 
-Repositorio público: [`Vilelapl/v1.0.0-mvp-public`](https://github.com/Vilelapl/v1.0.0-mvp-public).
-El MVP está validado localmente; el despliegue permanente sigue pendiente.
+Repositorio público: [`Vilelapl/Claria-Gestor_de_finanzas_personales`](https://github.com/Vilelapl/Claria-Gestor_de_finanzas_personales).
+El MVP version 1.0.0 está validado localmente; el despliegue permanente sigue pendiente.
 
 ## Qué incluye
 
